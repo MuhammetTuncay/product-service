@@ -23,8 +23,8 @@ To get started with the Product API, follow these steps:
 
 1. Clone the repository:
     ```sh
-    git clone <repository_url>
-    cd <repository_directory>
+    git clone https://github.com/MuhammetTuncay/product-service.git
+    cd product-service
     ```
 
 2. Build and run the Docker containers:
