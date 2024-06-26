@@ -1,0 +1,283 @@
+2024-06-19 11:01:48,901 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2024-06-19 11:01:48,904 INFO supervisord started with pid 1
+2024-06-19 11:01:49,912 INFO spawned: 'laravel-worker_00' with pid 7
+2024-06-19 11:01:49,915 INFO spawned: 'laravel-worker_01' with pid 8
+2024-06-19 11:01:49,918 INFO spawned: 'laravel-worker_02' with pid 9
+2024-06-19 11:01:49,921 INFO spawned: 'laravel-worker_03' with pid 10
+2024-06-19 11:01:49,923 INFO spawned: 'laravel-worker_04' with pid 11
+2024-06-19 11:01:49,925 INFO spawned: 'laravel-worker_05' with pid 12
+2024-06-19 11:01:49,927 INFO spawned: 'laravel-worker_06' with pid 13
+2024-06-19 11:01:49,929 INFO spawned: 'laravel-worker_07' with pid 14
+2024-06-19 11:01:50,287 WARN exited: laravel-worker_03 (exit status 1; not expected)
+2024-06-19 11:01:50,287 WARN exited: laravel-worker_05 (exit status 1; not expected)
+2024-06-19 11:01:50,287 WARN exited: laravel-worker_07 (exit status 1; not expected)
+2024-06-19 11:01:50,289 WARN exited: laravel-worker_02 (exit status 1; not expected)
+2024-06-19 11:01:50,289 WARN exited: laravel-worker_00 (exit status 1; not expected)
+2024-06-19 11:01:50,289 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2024-06-19 11:01:50,289 WARN exited: laravel-worker_01 (exit status 1; not expected)
+2024-06-19 11:01:50,290 WARN exited: laravel-worker_04 (exit status 1; not expected)
+2024-06-19 11:01:51,298 INFO spawned: 'laravel-worker_00' with pid 47
+2024-06-19 11:01:51,302 INFO spawned: 'laravel-worker_01' with pid 48
+2024-06-19 11:01:51,304 INFO spawned: 'laravel-worker_02' with pid 49
+2024-06-19 11:01:51,307 INFO spawned: 'laravel-worker_03' with pid 50
+2024-06-19 11:01:51,309 INFO spawned: 'laravel-worker_04' with pid 51
+2024-06-19 11:01:51,311 INFO spawned: 'laravel-worker_05' with pid 52
+2024-06-19 11:01:51,314 INFO spawned: 'laravel-worker_06' with pid 53
+2024-06-19 11:01:51,317 INFO spawned: 'laravel-worker_07' with pid 54
+2024-06-19 11:01:51,452 WARN exited: laravel-worker_05 (exit status 1; not expected)
+2024-06-19 11:01:51,455 WARN exited: laravel-worker_03 (exit status 1; not expected)
+2024-06-19 11:01:51,456 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2024-06-19 11:01:51,459 WARN exited: laravel-worker_00 (exit status 1; not expected)
+2024-06-19 11:01:51,463 WARN exited: laravel-worker_02 (exit status 1; not expected)
+2024-06-19 11:01:51,468 WARN exited: laravel-worker_07 (exit status 1; not expected)
+2024-06-19 11:01:51,473 WARN exited: laravel-worker_01 (exit status 1; not expected)
+2024-06-19 11:01:51,473 WARN exited: laravel-worker_04 (exit status 1; not expected)
+2024-06-19 11:01:53,484 INFO spawned: 'laravel-worker_00' with pid 87
+2024-06-19 11:01:53,487 INFO spawned: 'laravel-worker_01' with pid 88
+2024-06-19 11:01:53,490 INFO spawned: 'laravel-worker_02' with pid 89
+2024-06-19 11:01:53,491 INFO spawned: 'laravel-worker_03' with pid 90
+2024-06-19 11:01:53,494 INFO spawned: 'laravel-worker_04' with pid 91
+2024-06-19 11:01:53,497 INFO spawned: 'laravel-worker_05' with pid 92
+2024-06-19 11:01:53,499 INFO spawned: 'laravel-worker_06' with pid 93
+2024-06-19 11:01:53,502 INFO spawned: 'laravel-worker_07' with pid 94
+2024-06-19 11:01:53,620 WARN exited: laravel-worker_05 (exit status 1; not expected)
+2024-06-19 11:01:53,626 WARN exited: laravel-worker_04 (exit status 1; not expected)
+2024-06-19 11:01:53,627 WARN exited: laravel-worker_01 (exit status 1; not expected)
+2024-06-19 11:01:53,631 WARN exited: laravel-worker_07 (exit status 1; not expected)
+2024-06-19 11:01:53,635 WARN exited: laravel-worker_03 (exit status 1; not expected)
+2024-06-19 11:01:53,636 WARN exited: laravel-worker_02 (exit status 1; not expected)
+2024-06-19 11:01:53,637 WARN exited: laravel-worker_00 (exit status 1; not expected)
+2024-06-19 11:01:53,637 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2024-06-19 11:01:56,648 INFO spawned: 'laravel-worker_00' with pid 127
+2024-06-19 11:01:56,650 INFO spawned: 'laravel-worker_01' with pid 128
+2024-06-19 11:01:56,651 INFO spawned: 'laravel-worker_02' with pid 129
+2024-06-19 11:01:56,654 INFO spawned: 'laravel-worker_03' with pid 130
+2024-06-19 11:01:56,655 INFO spawned: 'laravel-worker_04' with pid 131
+2024-06-19 11:01:56,656 INFO spawned: 'laravel-worker_05' with pid 132
+2024-06-19 11:01:56,657 INFO spawned: 'laravel-worker_06' with pid 133
+2024-06-19 11:01:56,659 INFO spawned: 'laravel-worker_07' with pid 134
+2024-06-19 11:01:56,785 WARN exited: laravel-worker_02 (exit status 1; not expected)
+2024-06-19 11:01:56,785 WARN exited: laravel-worker_04 (exit status 1; not expected)
+2024-06-19 11:01:56,786 INFO gave up: laravel-worker_02 entered FATAL state, too many start retries too quickly
+2024-06-19 11:01:56,786 INFO gave up: laravel-worker_04 entered FATAL state, too many start retries too quickly
+2024-06-19 11:01:56,789 WARN exited: laravel-worker_00 (exit status 1; not expected)
+2024-06-19 11:01:56,789 WARN exited: laravel-worker_01 (exit status 1; not expected)
+2024-06-19 11:01:56,790 INFO gave up: laravel-worker_00 entered FATAL state, too many start retries too quickly
+2024-06-19 11:01:56,790 INFO gave up: laravel-worker_01 entered FATAL state, too many start retries too quickly
+2024-06-19 11:01:56,797 WARN exited: laravel-worker_03 (exit status 1; not expected)
+2024-06-19 11:01:56,799 INFO gave up: laravel-worker_03 entered FATAL state, too many start retries too quickly
+2024-06-19 11:01:56,799 WARN exited: laravel-worker_05 (exit status 1; not expected)
+2024-06-19 11:01:56,799 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2024-06-19 11:01:56,799 INFO gave up: laravel-worker_05 entered FATAL state, too many start retries too quickly
+2024-06-19 11:01:56,799 INFO gave up: laravel-worker_06 entered FATAL state, too many start retries too quickly
+2024-06-19 11:01:56,800 WARN exited: laravel-worker_07 (exit status 1; not expected)
+2024-06-19 11:01:57,803 INFO gave up: laravel-worker_07 entered FATAL state, too many start retries too quickly
+2024-06-19 11:04:33,337 WARN received SIGQUIT indicating exit request
+2024-06-19 11:04:33,677 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2024-06-19 11:04:33,678 INFO supervisord started with pid 1
+2024-06-19 11:04:34,689 INFO spawned: 'laravel-worker_00' with pid 7
+2024-06-19 11:04:34,708 INFO spawned: 'laravel-worker_01' with pid 8
+2024-06-19 11:04:34,711 INFO spawned: 'laravel-worker_02' with pid 9
+2024-06-19 11:04:34,713 INFO spawned: 'laravel-worker_03' with pid 10
+2024-06-19 11:04:34,715 INFO spawned: 'laravel-worker_04' with pid 11
+2024-06-19 11:04:34,716 INFO spawned: 'laravel-worker_05' with pid 12
+2024-06-19 11:04:34,717 INFO spawned: 'laravel-worker_06' with pid 13
+2024-06-19 11:04:34,718 INFO spawned: 'laravel-worker_07' with pid 14
+2024-06-19 11:04:34,891 WARN exited: laravel-worker_07 (exit status 1; not expected)
+2024-06-19 11:04:34,896 WARN exited: laravel-worker_04 (exit status 1; not expected)
+2024-06-19 11:04:34,896 WARN exited: laravel-worker_00 (exit status 1; not expected)
+2024-06-19 11:04:34,897 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2024-06-19 11:04:34,898 WARN exited: laravel-worker_01 (exit status 1; not expected)
+2024-06-19 11:04:34,904 WARN exited: laravel-worker_02 (exit status 1; not expected)
+2024-06-19 11:04:34,904 WARN exited: laravel-worker_05 (exit status 1; not expected)
+2024-06-19 11:04:35,931 INFO spawned: 'laravel-worker_00' with pid 47
+2024-06-19 11:04:35,934 INFO spawned: 'laravel-worker_01' with pid 48
+2024-06-19 11:04:35,938 INFO spawned: 'laravel-worker_02' with pid 49
+2024-06-19 11:04:35,938 INFO success: laravel-worker_03 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-06-19 11:04:35,941 INFO spawned: 'laravel-worker_04' with pid 50
+2024-06-19 11:04:35,946 INFO spawned: 'laravel-worker_05' with pid 51
+2024-06-19 11:04:35,947 INFO spawned: 'laravel-worker_06' with pid 52
+2024-06-19 11:04:35,948 INFO spawned: 'laravel-worker_07' with pid 53
+2024-06-19 11:04:35,948 WARN exited: laravel-worker_03 (exit status 1; not expected)
+2024-06-19 11:04:36,087 INFO spawned: 'laravel-worker_03' with pid 79
+2024-06-19 11:04:36,093 WARN exited: laravel-worker_00 (exit status 1; not expected)
+2024-06-19 11:04:36,094 WARN exited: laravel-worker_05 (exit status 1; not expected)
+2024-06-19 11:04:36,101 WARN exited: laravel-worker_04 (exit status 1; not expected)
+2024-06-19 11:04:36,103 WARN exited: laravel-worker_07 (exit status 1; not expected)
+2024-06-19 11:04:36,110 WARN exited: laravel-worker_01 (exit status 1; not expected)
+2024-06-19 11:04:36,111 WARN exited: laravel-worker_02 (exit status 1; not expected)
+2024-06-19 11:04:36,111 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2024-06-19 11:04:37,194 INFO success: laravel-worker_03 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-06-19 11:04:37,195 WARN exited: laravel-worker_03 (exit status 1; not expected)
+2024-06-19 11:04:38,204 INFO spawned: 'laravel-worker_00' with pid 87
+2024-06-19 11:04:38,208 INFO spawned: 'laravel-worker_01' with pid 88
+2024-06-19 11:04:38,221 INFO spawned: 'laravel-worker_02' with pid 89
+2024-06-19 11:04:38,222 INFO spawned: 'laravel-worker_03' with pid 90
+2024-06-19 11:04:38,225 INFO spawned: 'laravel-worker_04' with pid 91
+2024-06-19 11:04:38,226 INFO spawned: 'laravel-worker_05' with pid 92
+2024-06-19 11:04:38,228 INFO spawned: 'laravel-worker_06' with pid 93
+2024-06-19 11:04:38,230 INFO spawned: 'laravel-worker_07' with pid 94
+2024-06-19 11:04:38,377 WARN exited: laravel-worker_00 (exit status 1; not expected)
+2024-06-19 11:04:38,382 WARN exited: laravel-worker_07 (exit status 1; not expected)
+2024-06-19 11:04:38,383 WARN exited: laravel-worker_02 (exit status 1; not expected)
+2024-06-19 11:04:38,383 WARN exited: laravel-worker_05 (exit status 1; not expected)
+2024-06-19 11:04:38,387 WARN exited: laravel-worker_04 (exit status 1; not expected)
+2024-06-19 11:04:38,396 WARN exited: laravel-worker_01 (exit status 1; not expected)
+2024-06-19 11:04:38,396 WARN exited: laravel-worker_03 (exit status 1; not expected)
+2024-06-19 11:04:39,414 INFO spawned: 'laravel-worker_03' with pid 127
+2024-06-19 11:04:39,416 INFO success: laravel-worker_06 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-06-19 11:04:39,416 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2024-06-19 11:04:39,554 INFO spawned: 'laravel-worker_06' with pid 132
+2024-06-19 11:04:39,560 WARN exited: laravel-worker_03 (exit status 1; not expected)
+2024-06-19 11:04:39,649 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2024-06-19 11:04:40,662 INFO spawned: 'laravel-worker_06' with pid 137
+2024-06-19 11:04:41,781 INFO spawned: 'laravel-worker_00' with pid 142
+2024-06-19 11:04:41,783 INFO spawned: 'laravel-worker_01' with pid 143
+2024-06-19 11:04:41,786 INFO spawned: 'laravel-worker_02' with pid 144
+2024-06-19 11:04:41,789 INFO spawned: 'laravel-worker_03' with pid 145
+2024-06-19 11:04:41,795 INFO spawned: 'laravel-worker_04' with pid 146
+2024-06-19 11:04:41,796 INFO spawned: 'laravel-worker_05' with pid 147
+2024-06-19 11:04:41,797 INFO success: laravel-worker_06 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-06-19 11:04:41,798 INFO spawned: 'laravel-worker_07' with pid 148
+2024-06-19 11:04:41,798 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2024-06-19 11:04:41,928 INFO spawned: 'laravel-worker_06' with pid 177
+2024-06-19 11:04:41,934 WARN exited: laravel-worker_03 (exit status 1; not expected)
+2024-06-19 11:04:41,935 WARN exited: laravel-worker_00 (exit status 1; not expected)
+2024-06-19 11:04:41,936 INFO gave up: laravel-worker_00 entered FATAL state, too many start retries too quickly
+2024-06-19 11:04:41,936 WARN exited: laravel-worker_04 (exit status 1; not expected)
+2024-06-19 11:04:41,936 INFO gave up: laravel-worker_04 entered FATAL state, too many start retries too quickly
+2024-06-19 11:04:41,939 WARN exited: laravel-worker_07 (exit status 1; not expected)
+2024-06-19 11:04:41,942 INFO gave up: laravel-worker_07 entered FATAL state, too many start retries too quickly
+2024-06-19 11:04:41,942 WARN exited: laravel-worker_02 (exit status 1; not expected)
+2024-06-19 11:04:41,942 INFO gave up: laravel-worker_02 entered FATAL state, too many start retries too quickly
+2024-06-19 11:04:41,942 WARN exited: laravel-worker_05 (exit status 1; not expected)
+2024-06-19 11:04:41,944 INFO gave up: laravel-worker_05 entered FATAL state, too many start retries too quickly
+2024-06-19 11:04:41,945 WARN exited: laravel-worker_01 (exit status 1; not expected)
+2024-06-19 11:04:42,022 INFO gave up: laravel-worker_01 entered FATAL state, too many start retries too quickly
+2024-06-19 11:04:43,030 INFO success: laravel-worker_06 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-06-19 11:04:43,031 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2024-06-19 11:04:44,040 INFO spawned: 'laravel-worker_06' with pid 182
+2024-06-19 11:04:45,165 INFO spawned: 'laravel-worker_03' with pid 187
+2024-06-19 11:04:45,165 INFO success: laravel-worker_06 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-06-19 11:04:45,166 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2024-06-19 11:04:45,278 INFO spawned: 'laravel-worker_06' with pid 192
+2024-06-19 11:04:45,284 WARN exited: laravel-worker_03 (exit status 1; not expected)
+2024-06-19 11:04:45,365 INFO gave up: laravel-worker_03 entered FATAL state, too many start retries too quickly
+2024-06-19 11:04:46,373 INFO success: laravel-worker_06 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-06-19 11:04:46,374 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2024-06-19 11:04:47,381 INFO spawned: 'laravel-worker_06' with pid 197
+2024-06-19 11:04:48,517 INFO success: laravel-worker_06 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-06-19 11:04:48,518 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2024-06-19 11:04:49,525 INFO spawned: 'laravel-worker_06' with pid 202
+2024-06-19 11:04:50,680 INFO success: laravel-worker_06 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-06-19 11:04:50,682 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2024-06-19 11:04:51,686 INFO spawned: 'laravel-worker_06' with pid 207
+2024-06-19 11:04:52,837 INFO success: laravel-worker_06 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-06-19 11:04:52,838 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2024-06-19 11:04:53,849 INFO spawned: 'laravel-worker_06' with pid 212
+2024-06-19 11:04:54,990 INFO success: laravel-worker_06 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-06-19 11:04:54,991 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2024-06-19 11:04:56,002 INFO spawned: 'laravel-worker_06' with pid 217
+2024-06-19 11:04:57,124 INFO success: laravel-worker_06 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-06-19 11:04:57,125 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2024-06-19 11:04:58,131 INFO spawned: 'laravel-worker_06' with pid 222
+2024-06-19 11:04:59,286 INFO success: laravel-worker_06 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-06-19 11:04:59,287 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2024-06-19 11:05:00,298 INFO spawned: 'laravel-worker_06' with pid 227
+2024-06-19 11:05:01,421 INFO success: laravel-worker_06 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-06-19 11:05:01,422 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2024-06-19 11:05:02,434 INFO spawned: 'laravel-worker_06' with pid 232
+2024-06-19 11:05:03,577 INFO success: laravel-worker_06 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-06-19 11:05:03,577 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2024-06-19 11:05:04,586 INFO spawned: 'laravel-worker_06' with pid 237
+2024-06-19 11:05:05,724 INFO success: laravel-worker_06 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-06-19 11:05:05,725 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2024-06-19 11:05:06,730 INFO spawned: 'laravel-worker_06' with pid 242
+2024-06-19 11:05:06,875 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2024-06-19 11:05:07,888 INFO spawned: 'laravel-worker_06' with pid 247
+2024-06-19 11:05:09,022 INFO success: laravel-worker_06 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-06-19 11:05:09,022 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2024-06-19 11:05:10,031 INFO spawned: 'laravel-worker_06' with pid 252
+2024-06-19 11:05:10,176 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2024-06-19 11:05:11,184 INFO spawned: 'laravel-worker_06' with pid 257
+2024-06-19 11:05:11,312 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2024-06-19 11:05:13,323 INFO spawned: 'laravel-worker_06' with pid 262
+2024-06-19 11:05:13,450 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2024-06-19 11:05:16,463 INFO spawned: 'laravel-worker_06' with pid 267
+2024-06-19 11:05:17,601 INFO success: laravel-worker_06 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-06-19 11:05:17,602 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2024-06-19 11:05:18,612 INFO spawned: 'laravel-worker_06' with pid 272
+2024-06-19 11:05:18,759 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2024-06-19 11:05:19,767 INFO spawned: 'laravel-worker_06' with pid 277
+2024-06-19 11:05:19,899 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2024-06-19 11:05:21,912 INFO spawned: 'laravel-worker_06' with pid 282
+2024-06-19 11:05:23,057 INFO success: laravel-worker_06 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-06-19 11:05:23,058 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2024-06-19 11:05:24,066 INFO spawned: 'laravel-worker_06' with pid 287
+2024-06-19 11:05:25,190 INFO success: laravel-worker_06 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-06-19 11:05:25,190 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2024-06-19 11:05:26,199 INFO spawned: 'laravel-worker_06' with pid 292
+2024-06-19 11:05:26,320 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2024-06-19 11:05:27,328 INFO spawned: 'laravel-worker_06' with pid 297
+2024-06-19 11:05:27,447 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2024-06-19 11:05:29,458 INFO spawned: 'laravel-worker_06' with pid 302
+2024-06-19 11:05:29,575 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2024-06-19 11:05:32,589 INFO spawned: 'laravel-worker_06' with pid 307
+2024-06-19 11:05:33,713 INFO success: laravel-worker_06 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-06-19 11:05:33,714 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2024-06-19 11:05:34,723 INFO spawned: 'laravel-worker_06' with pid 312
+2024-06-19 11:05:35,837 INFO success: laravel-worker_06 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-06-19 11:05:35,837 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2024-06-19 11:05:36,844 INFO spawned: 'laravel-worker_06' with pid 317
+2024-06-19 11:05:37,972 INFO success: laravel-worker_06 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-06-19 11:05:37,972 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2024-06-19 11:05:38,982 INFO spawned: 'laravel-worker_06' with pid 322
+2024-06-19 11:05:40,117 INFO success: laravel-worker_06 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-06-19 11:05:40,118 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2024-06-19 11:05:41,126 INFO spawned: 'laravel-worker_06' with pid 327
+2024-06-19 11:05:42,245 INFO success: laravel-worker_06 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-06-19 11:05:42,246 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2024-06-19 11:05:43,254 INFO spawned: 'laravel-worker_06' with pid 332
+2024-06-19 11:05:44,399 INFO success: laravel-worker_06 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-06-19 11:05:44,401 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2024-06-19 11:05:45,407 INFO spawned: 'laravel-worker_06' with pid 337
+2024-06-19 11:05:46,533 INFO success: laravel-worker_06 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-06-19 11:05:46,535 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2024-06-19 11:05:47,546 INFO spawned: 'laravel-worker_06' with pid 342
+2024-06-19 11:05:48,681 INFO success: laravel-worker_06 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-06-19 11:05:48,681 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2024-06-19 11:05:49,692 INFO spawned: 'laravel-worker_06' with pid 347
+2024-06-19 11:05:49,840 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2024-06-19 11:05:50,843 INFO spawned: 'laravel-worker_06' with pid 352
+2024-06-19 11:05:50,955 WARN exited: laravel-worker_06 (exit status 1; not expected)
+2024-06-19 11:05:52,964 INFO spawned: 'laravel-worker_06' with pid 357
+2024-06-19 11:05:52,964 WARN received SIGQUIT indicating exit request
+2024-06-19 11:05:52,965 INFO waiting for laravel-worker_06 to die
+2024-06-19 11:05:54,098 WARN stopped: laravel-worker_06 (exit status 1)
+2024-06-19 11:05:54,504 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2024-06-19 11:05:54,506 INFO supervisord started with pid 1
+2024-06-19 11:06:01,528 WARN received SIGQUIT indicating exit request
+2024-06-19 11:06:01,944 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2024-06-19 11:06:01,945 INFO supervisord started with pid 1
+2024-06-19 11:07:17,239 WARN received SIGQUIT indicating exit request
+2024-06-19 11:12:58,619 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2024-06-19 11:12:58,621 INFO supervisord started with pid 1
+2024-06-19 11:17:13,358 WARN received SIGQUIT indicating exit request
+2024-06-19 11:17:31,782 INFO Set uid to user 0 succeeded
+2024-06-19 11:17:31,785 INFO supervisord started with pid 1
+2024-06-19 11:19:52,284 WARN received SIGQUIT indicating exit request
+2024-06-19 11:22:47,295 INFO Set uid to user 0 succeeded
+2024-06-19 11:22:47,298 INFO supervisord started with pid 1
+2024-06-19 11:23:39,460 WARN received SIGQUIT indicating exit request
+2024-06-19 12:01:36,486 INFO Set uid to user 1000 succeeded
+2024-06-19 12:01:36,489 INFO supervisord started with pid 1
+2024-06-19 12:05:48,355 WARN received SIGQUIT indicating exit request
+2024-06-19 12:05:55,102 INFO Set uid to user 1000 succeeded
+2024-06-19 12:05:55,104 INFO supervisord started with pid 1
+2024-06-19 12:07:01,320 WARN received SIGQUIT indicating exit request
+2024-06-19 12:07:03,731 INFO Set uid to user 1000 succeeded
+2024-06-19 12:07:03,733 INFO supervisord started with pid 1
+2024-06-19 12:09:26,184 WARN received SIGQUIT indicating exit request
+2024-06-19 12:09:30,421 INFO Set uid to user 1000 succeeded
+2024-06-19 12:09:30,425 INFO supervisord started with pid 1
+2024-06-19 12:13:22,168 WARN received SIGQUIT indicating exit request

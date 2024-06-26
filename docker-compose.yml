@@ -1,0 +1,79 @@
+version: '3.1'
+
+networks:
+  app:
+    driver: bridge
+
+services:
+  webserver:
+    image: 'nginx:alpine'
+    container_name: "webserver_${APP_NAME}"
+    working_dir: /app
+    volumes:
+      - '.:/app'
+      - './docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf'
+    ports:
+      - '${WEBSERVICE_PORT}:80'
+    networks:
+      - app
+
+  php-fpm:
+    build: 'docker/php-fpm'
+    container_name: "phpserver_${APP_NAME}"
+    working_dir: /app
+    volumes:
+      - '.:/app'
+      - './docker/php-fpm/php-ini-overrides.ini:/etc/php/8.2/fpm/conf.d/99-overrides.ini'
+    networks:
+      - app
+
+  supervisor:
+    build: 'docker/supervisor'
+    container_name: "supervisor_${APP_NAME}"
+    working_dir: /app
+    volumes:
+      - '.:/app'
+      - './docker/supervisor/supervisord.conf:/etc/supervisor/supervisord.conf'
+    networks:
+      - app
+
+  redis:
+    image: redis:latest
+    container_name: "redis_${APP_NAME}"
+    ports:
+      - "${REDIS_PORT}:${REDIS_PORT}"
+    networks:
+      - app
+
+  rabbitmq:
+    image: rabbitmq:management
+    container_name: "rabbitmq_${APP_NAME}"
+    ports:
+      - "${RABBITMQ_PORT}:${RABBITMQ_PORT}"
+      - "${RABBITMQ_MANAGEMENT_PORT}:${RABBITMQ_MANAGEMENT_PORT}"
+    networks:
+      - app
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.16.0
+    container_name: "elasticsearch_${APP_NAME}"
+    environment:
+      - discovery.type=single-node
+    ports:
+      - "${ELASTICSEARCH_PORT}:${ELASTICSEARCH_PORT}"
+    networks:
+      - app
+
+  mysql:
+    image: mysql:latest
+    container_name: "mysql_${APP_NAME}"
+    restart: always
+    environment:
+      MYSQL_DATABASE: '${MYSQL_DATABASE}'
+      MYSQL_USER: '${MYSQL_USER}'
+      MYSQL_PASSWORD: '${MYSQL_PASSWORD}'
+      MYSQL_ROOT_PASSWORD: '${MYSQL_ROOT_PASSWORD}'
+    ports:
+      - "${MYSQL_PORT}:${MYSQL_PORT}"
+    networks:
+      - app

@@ -1,0 +1,586 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Product API",
+        "version": "V1"
+    },
+    "paths": {
+        "/api/create-mapping": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Create mapping for Elasticsearch",
+                "description": "Create mapping for Elasticsearch",
+                "operationId": "createMapping",
+                "responses": {
+                    "200": {
+                        "description": "Mapping created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Mapping created successfully"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/products": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "List products",
+                "description": "Retrieve a list of products with optional filtering and pagination.",
+                "operationId": "listProducts",
+                "parameters": [
+                    {
+                        "name": "query",
+                        "in": "query",
+                        "description": "Search query to filter products by name.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "product name"
+                    },
+                    {
+                        "name": "product_ids",
+                        "in": "query",
+                        "description": "Comma-separated list of product IDs to filter by.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1,2,3"
+                    },
+                    {
+                        "name": "category",
+                        "in": "query",
+                        "description": "Comma-separated list of category IDs to filter by.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1,2,3"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number for pagination (default: 1).",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Number of items per page (default: 10).",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 10
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "Field name to sort results by.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "product_id"
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "description": "Sort order ('asc' or 'desc').",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "asc",
+                                "desc"
+                            ]
+                        },
+                        "example": "desc"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of products matching the criteria.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ResponseElasticProduct"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Create a new product",
+                "description": "Create a new product",
+                "operationId": "createProduct",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateProductRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Product created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Product created successfully"
+                                        },
+                                        "product": {
+                                            "$ref": "#/components/schemas/Product"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/products/{id}": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Get product by id",
+                "description": "Get product by id",
+                "operationId": "showProduct",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of product to return",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Product found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "product": {
+                                            "$ref": "#/components/schemas/ResponseProduct"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Product not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Product not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Update product by id",
+                "description": "Update product by id",
+                "operationId": "updateProduct",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of product to update",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateProductRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Product updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Product updated successfully"
+                                        },
+                                        "product": {
+                                            "$ref": "#/components/schemas/Product"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Delete product by id",
+                "description": "Delete product by id",
+                "operationId": "deleteProduct",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of product to delete",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Product deleted successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Product deleted successfully"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/products-index": {
+            "post": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Index all products in Elasticsearch",
+                "description": "Index all products in Elasticsearch",
+                "operationId": "productsBulkIndex",
+                "responses": {
+                    "200": {
+                        "description": "Products indexed successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Products indexed successfully"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Category": {
+                "required": [
+                    "id",
+                    "name",
+                    "created_at",
+                    "updated_at"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 5
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "voluptas"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2024-06-19T12:50:46.000000Z"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2024-06-19T12:50:46.000000Z"
+                    },
+                    "pivot": {
+                        "properties": {
+                            "product_id": {
+                                "type": "integer",
+                                "example": 100
+                            },
+                            "category_id": {
+                                "type": "integer",
+                                "example": 5
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "type": "object"
+            },
+            "CreateProductRequest": {
+                "required": [
+                    "name",
+                    "price",
+                    "stock"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "deneme"
+                    },
+                    "category": {
+                        "description": "Array of category IDs",
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "nullable": true
+                    },
+                    "price": {
+                        "type": "number",
+                        "format": "float",
+                        "example": 199.99
+                    },
+                    "stock": {
+                        "type": "integer",
+                        "example": 55
+                    }
+                },
+                "type": "object"
+            },
+            "Product": {
+                "required": [
+                    "id",
+                    "name",
+                    "sku",
+                    "price",
+                    "created_at",
+                    "updated_at",
+                    "categories"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 100
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "deneme"
+                    },
+                    "sku": {
+                        "type": "string",
+                        "example": "SKU6673957e4b2f4"
+                    },
+                    "price": {
+                        "type": "number",
+                        "format": "float",
+                        "example": 199.99
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2024-06-20T02:35:42.000000Z"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2024-06-20T02:35:42.000000Z"
+                    },
+                    "categories": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Category"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "ResponseElasticProduct": {
+                "title": "ResponseElasticProduct",
+                "description": "Response schema for products fetched from Elasticsearch",
+                "required": [
+                    "product_id",
+                    "name",
+                    "price",
+                    "sku",
+                    "category"
+                ],
+                "properties": {
+                    "product_id": {
+                        "description": "Product ID",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "name": {
+                        "description": "Product name",
+                        "type": "string",
+                        "example": "Product name"
+                    },
+                    "price": {
+                        "description": "Product price",
+                        "type": "number",
+                        "format": "float",
+                        "example": 10.5
+                    },
+                    "sku": {
+                        "description": "Product SKU",
+                        "type": "string",
+                        "example": "SKU123"
+                    },
+                    "category": {
+                        "description": "Product categories",
+                        "type": "array",
+                        "items": {
+                            "required": [
+                                "category_id",
+                                "name",
+                                "raw"
+                            ],
+                            "properties": {
+                                "category_id": {
+                                    "description": "Category ID",
+                                    "type": "integer",
+                                    "format": "int64",
+                                    "example": 1
+                                },
+                                "name": {
+                                    "description": "Category name",
+                                    "type": "string",
+                                    "example": "Category name"
+                                },
+                                "raw": {
+                                    "description": "Raw category data",
+                                    "type": "string",
+                                    "example": "1:Category name"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "ResponseProduct": {
+                "title": "Response Product",
+                "description": "Response schema for product data",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "deneme"
+                    },
+                    "price": {
+                        "type": "number",
+                        "format": "float",
+                        "example": 199.99
+                    },
+                    "category_id": {
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "category_id": {
+                                    "type": "integer",
+                                    "example": 5
+                                },
+                                "name": {
+                                    "type": "string",
+                                    "example": "voluptas"
+                                },
+                                "raw": {
+                                    "type": "string",
+                                    "example": "5:voluptas"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "example": [
+                            {
+                                "category_id": 5,
+                                "name": "voluptas",
+                                "raw": "5:voluptas"
+                            }
+                        ]
+                    },
+                    "stock": {
+                        "type": "integer",
+                        "example": 55
+                    }
+                },
+                "type": "object"
+            }
+        }
+    }
+}

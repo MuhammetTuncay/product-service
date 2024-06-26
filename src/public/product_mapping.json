@@ -1,0 +1,33 @@
+{
+    "properties": {
+        "product_id": {
+            "type": "integer"
+        },
+        "name": {
+            "type": "text",
+            "fielddata": true,
+            "analyzer": "keywordAnalyzer",
+            "search_analyzer": "turkish_synonyms"
+        },
+        "price": {
+            "type": "float"
+        },
+        "sku": {
+            "type": "text"
+        },
+        "category": {
+            "type": "nested",
+            "properties": {
+                "category_id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "keyword"
+                },
+                "raw": {
+                    "type": "keyword"
+                }
+            }
+        }
+    }
+}
