@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da5ff3e3-ec85-4c26-91d9-e5ae47bc4970" name="Changes" comment="deploy 07" />
+    <list default="true" id="da5ff3e3-ec85-4c26-91d9-e5ae47bc4970" name="Changes" comment="deploy 08">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/deploy.yml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -386,6 +388,7 @@
     <MESSAGE value="deploy 05" />
     <MESSAGE value="deploy 06" />
     <MESSAGE value="deploy 07" />
-    <option name="LAST_COMMIT_MESSAGE" value="deploy 07" />
+    <MESSAGE value="deploy 08" />
+    <option name="LAST_COMMIT_MESSAGE" value="deploy 08" />
   </component>
 </project>

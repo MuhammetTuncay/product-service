@@ -37,13 +37,6 @@ jobs:
           tags: muhammettncy/product-service:latest
           file: ./Dockerfile
 
-      - name: Build and push Nginx
-        uses: docker/build-push-action@v6
-        with:
-          context: .
-          push: true
-          tags: muhammettncy/nginx:latest
-          file: ./Dockerfile
 
       - name: SSH into EC2 and update containers
         uses: appleboy/ssh-action@master
@@ -68,9 +61,9 @@ jobs:
             docker run --detach --name phpserver_product_service --network app-network -p 9000:9000 muhammettncy/product-service:latest
 
             # Check if .env file exists inside the container
-            if ! docker exec phpserver_product_service test -f /var/www/backend/.env; then
+            #if ! docker exec phpserver_product_service test -f /var/www/backend/.env; then
               docker cp /home/ec2-user/env/.env phpserver_product_service:/var/www/backend/.env
-            fi
+            #fi
 
             # Nginx
             docker pull muhammettncy/nginx:latest
