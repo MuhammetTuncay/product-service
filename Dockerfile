@@ -49,16 +49,6 @@ COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
-# Run Artisan commands (this will run every time the image is built, which is usually not desired)
-RUN php artisan migrate
-RUN php artisan db:seed
-RUN php artisan cache:clear
-RUN php artisan route:clear
-RUN php artisan view:clear
-RUN php artisan config:clear
-RUN php artisan permission:cache-reset
-
-
 # Expose necessary ports
 EXPOSE 9000
 
