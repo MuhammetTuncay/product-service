@@ -1,4 +1,4 @@
-FROM nginx:1.22
+FROM nginx:latest
 
 RUN apt update -y
 RUN apt-get install -y software-properties-common wget gnupg2 git cron
@@ -13,8 +13,8 @@ RUN apt-get install -y php8.2-fpm php8.2-dom  php8.2-zip php8.2-bcmath php8.2-mo
 #RUN cd  newrelic-php5-10.14.0.3-linux && echo 1 | ./newrelic-install
 #RUN rm -rf /etc/php/8.2/fpm/conf.d/newrelic.ini
 
-RUN rm -rf /etc/nginc/nginx.conf
-ADD nginx/nginx.conf /etc/nginx/
+#RUN rm -rf /etc/nginc/nginx.conf
+#ADD nginx/nginx.conf /etc/nginx/
 
 #COPY cron-container /etc/cron.d/cron-container
 #RUN chmod 0644 /etc/cron.d/cron-container

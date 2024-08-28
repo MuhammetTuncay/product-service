@@ -47,34 +47,36 @@ jobs:
           script: |
             docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
-            # Docker network oluştur
-            if ! docker network inspect app-network >/dev/null 2>&1; then
-              docker network create app-network
+            # Create Docker network if not exists
+            if ! docker network inspect app >/dev/null 2>&1; then
+              docker network create app
             fi
 
             cd /home/ec2-user/product-service
 
-            # Laravel backend
+            # Pull the latest Laravel backend image
             docker pull muhammettncy/product-service:latest
             docker stop phpserver_product_service || true
             docker rm phpserver_product_service || true
-            docker run --detach --name phpserver_product_service --network app-network -p 9000:9000 muhammettncy/product-service:latest
+            docker run --detach --name phpserver_product_service --network app -p 9000:9000 muhammettncy/product-service:latest
 
-            # Check if .env file exists inside the container
-            #if ! docker exec phpserver_product_service test -f /var/www/backend/.env; then
-              docker cp /home/ec2-user/env/.env phpserver_product_service:/var/www/backend/.env
-            #fi
+            # Ensure the .env file exists inside the container
+            if ! docker exec phpserver_product_service test -f /var/www/html/.env; then
+              docker cp /home/ec2-user/env/.env phpserver_product_service:/var/www/html/.env
+              echo ".env file copied to /var/www/html/.env inside the container."
+            else
+              echo ".env file already exists inside the container."
+            fi
 
-            # Nginx
+            # Pull the latest Nginx image
             docker pull muhammettncy/nginx:latest
             docker stop nginx || true
             docker rm nginx || true
-            docker run --detach --name nginx --network app-network -p 80:80 muhammettncy/nginx:latest
+            docker run --detach --name nginx --network app -p 80:80 muhammettncy/nginx:latest
 
-            # Kullanılmayan dangling image'ları temizle
+            # Clean up unused dangling images
             docker image prune -f
 
-            # Logları kontrol et
+            # Check logs
             docker logs nginx
             docker logs phpserver_product_service
-      
