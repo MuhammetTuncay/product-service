@@ -1,3 +1,4 @@
+# Use PHP 8.3 FPM
 FROM php:8.3-fpm
 
 # Install necessary packages and PHP extensions
@@ -29,23 +30,27 @@ RUN apt-get update && apt-get install -y \
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg && \
     docker-php-ext-install gd zip pdo pdo_mysql sockets pcntl exif pdo_pgsql intl
 
-# Install Redis and Supervisor extensions
+# Install Redis PHP extension and enable it
 RUN pecl install redis && docker-php-ext-enable redis
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
+# Set working directory
 WORKDIR /var/www/backend
 
-# Copy project files
+# Copy project files into the container
 COPY ./source /var/www/backend
 
-# Copy Supervisor config
+# Copy Supervisor configuration
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Copy and set up the entrypoint script
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
-ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+# Expose necessary ports
+EXPOSE 9000
 
+# Define the entrypoint to run the custom script
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
