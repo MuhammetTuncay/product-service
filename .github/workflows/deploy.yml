@@ -92,4 +92,6 @@ jobs:
             # Logları kontrol et
             docker logs nginx
             docker logs product_service
+            docker logs product_service_mysql
+
       
