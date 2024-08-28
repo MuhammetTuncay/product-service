@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da5ff3e3-ec85-4c26-91d9-e5ae47bc4970" name="Changes" comment="deploy 23" />
+    <list default="true" id="da5ff3e3-ec85-4c26-91d9-e5ae47bc4970" name="Changes" comment="deploy 24" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -548,6 +548,7 @@
     <MESSAGE value="deploy 21" />
     <MESSAGE value="deploy 22" />
     <MESSAGE value="deploy 23" />
-    <option name="LAST_COMMIT_MESSAGE" value="deploy 23" />
+    <MESSAGE value="deploy 24" />
+    <option name="LAST_COMMIT_MESSAGE" value="deploy 24" />
   </component>
 </project>
