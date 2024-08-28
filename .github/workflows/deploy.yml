@@ -63,13 +63,13 @@ jobs:
 
             # Laravel backend
             docker pull muhammettncy/product-service:latest
-            docker stop beran_app || true
-            docker rm beran_app || true
-            docker run --detach --name beran_app --network app-network -p 9000:9000 muhammettncy/product-service:latest
+            docker stop phpserver_product_service || true
+            docker rm phpserver_product_service || true
+            docker run --detach --name phpserver_product_service --network app-network -p 9000:9000 muhammettncy/product-service:latest
 
             # Check if .env file exists inside the container
-            if ! docker exec beran_app test -f /var/www/backend/.env; then
-              docker cp /home/ec2-user/env/.env beran_app:/var/www/backend/.env
+            if ! docker exec phpserver_product_service test -f /var/www/backend/.env; then
+              docker cp /home/ec2-user/env/.env phpserver_product_service:/var/www/backend/.env
             fi
 
             # Nginx
@@ -83,5 +83,5 @@ jobs:
 
             # Logları kontrol et
             docker logs nginx
-            docker logs beran_app
+            docker logs phpserver_product_service
       
