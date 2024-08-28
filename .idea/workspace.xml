@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da5ff3e3-ec85-4c26-91d9-e5ae47bc4970" name="Changes" comment="deploy 18">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/source/.env.example" afterDir="false" />
-    </list>
+    <list default="true" id="da5ff3e3-ec85-4c26-91d9-e5ae47bc4970" name="Changes" comment="deploy 19" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -530,6 +524,7 @@
     <MESSAGE value="deploy 16" />
     <MESSAGE value="deploy 17" />
     <MESSAGE value="deploy 18" />
-    <option name="LAST_COMMIT_MESSAGE" value="deploy 18" />
+    <MESSAGE value="deploy 19" />
+    <option name="LAST_COMMIT_MESSAGE" value="deploy 19" />
   </component>
 </project>
