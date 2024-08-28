@@ -40,6 +40,7 @@ services:
       - app-network
     ports:
       - "9000:9000"
+    entrypoint: [ "/usr/local/bin/entrypoint.sh" ]
 
   product_service_mysql:
     container_name: product_service_mysql
