@@ -1,32 +1,50 @@
-FROM nginx:latest
+FROM php:8.3-fpm
 
-RUN apt update -y
-RUN apt-get install -y software-properties-common wget gnupg2 git cron
-RUN curl https://packages.sury.org/php/apt.gpg | apt-key add -
-RUN wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
-RUN echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" |  tee /etc/apt/sources.list.d/php.list
-RUN apt-get update -y
-RUN apt-get install -y php8.2-fpm php8.2-dom  php8.2-zip php8.2-bcmath php8.2-mongodb php8.2-curl php8.2-intl php8.2-redis php8.2-mysql php8.2-soap supervisor -y
-RUN docker-php-ext-install pdo pdo_mysql
+# Gerekli paketleri yükle
+RUN apt-get update && apt-get install -y \
+    libpng-dev \
+    libjpeg-dev \
+    libfreetype6-dev \
+    libzip-dev \
+    zip \
+    unzip \
+    git \
+    cron \
+    sudo \
+    iproute2 \
+    iputils-ping \
+    procps \
+    bash \
+    libpq-dev \
+    nano \
+    vim \
+    libicu-dev \
+    redis-server \
+    libhiredis-dev \
+    supervisor \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-#COPY newrelic-php5-10.14.0.3-linux.tar.gz .
-#RUN tar -xzvf newrelic-php5-10.14.0.3-linux.tar.gz
-#RUN cd  newrelic-php5-10.14.0.3-linux && echo 1 | ./newrelic-install
-#RUN rm -rf /etc/php/8.2/fpm/conf.d/newrelic.ini
+# PHP uzantılarını kur
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg && \
+    docker-php-ext-install gd zip pdo pdo_mysql sockets pcntl exif pdo_pgsql intl
 
-#RUN rm -rf /etc/nginc/nginx.conf
-#ADD nginx/nginx.conf /etc/nginx/
+# Redis uzantısını yükle
+RUN pecl install redis && docker-php-ext-enable redis
 
-#COPY cron-container /etc/cron.d/cron-container
-#RUN chmod 0644 /etc/cron.d/cron-container
-#RUN crontab /etc/cron.d/cron-container
+# Composer'ı kur
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-COPY docker/supervisor/supervisord.conf /etc/supervisor/conf.d
-RUN sed -i 's/memory_limit = 128M/memory_limit = -1/g' /etc/php/8.2/fpm/php.ini
-WORKDIR /var/www/html/
-COPY --chown=www-data:www-data  . .
+WORKDIR /var/www/backend
 
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-RUN composer install --working-dir /var/www/html/src/
+# Proje dosyalarını kopyala
+COPY ./source /var/www/backend
 
-CMD php /var/www/html/src/artisan cache:clear && php /var/www/html/src/artisan config:cache && service php8.2-fpm start && service cron start && supervisord && nginx -g 'daemon off;'
+# Supervisor yapılandırma dosyasını kopyala
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+# Entrypoint script ekle
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
+# Entrypoint scripti çalıştır
+ENTRYPOINT ["entrypoint.sh"]
