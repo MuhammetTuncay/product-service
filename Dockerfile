@@ -7,6 +7,7 @@ RUN wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
 RUN echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" |  tee /etc/apt/sources.list.d/php.list
 RUN apt-get update -y
 RUN apt-get install -y php8.2-fpm php8.2-dom  php8.2-zip php8.2-bcmath php8.2-mongodb php8.2-curl php8.2-intl php8.2-redis php8.2-mysql php8.2-soap supervisor -y
+RUN docker-php-ext-install pdo pdo_mysql
 
 #COPY newrelic-php5-10.14.0.3-linux.tar.gz .
 #RUN tar -xzvf newrelic-php5-10.14.0.3-linux.tar.gz

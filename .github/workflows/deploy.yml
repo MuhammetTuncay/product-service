@@ -47,36 +47,33 @@ jobs:
           script: |
             docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
-            # Create Docker network if not exists
-            if ! docker network inspect app >/dev/null 2>&1; then
-              docker network create app
+            # Docker network oluştur
+            if ! docker network inspect app-network >/dev/null 2>&1; then
+              docker network create app-network
             fi
 
             cd /home/ec2-user/product-service
 
-            # Pull the latest Laravel backend image
+            # Laravel backend
             docker pull muhammettncy/product-service:latest
             docker stop phpserver_product_service || true
             docker rm phpserver_product_service || true
-            docker run --detach --name phpserver_product_service --network app -p 9000:9000 muhammettncy/product-service:latest
+            docker run --detach --name phpserver_product_service --network app-network -p 9000:9000 muhammettncy/product-service:latest
 
-            # Ensure the .env file exists inside the container
+            # Check if .env file exists inside the container
             if ! docker exec phpserver_product_service test -f /var/www/html/.env; then
               docker cp /home/ec2-user/env/.env phpserver_product_service:/var/www/html/.env
-              echo ".env file copied to /var/www/html/.env inside the container."
-            else
-              echo ".env file already exists inside the container."
             fi
 
-            # Pull the latest Nginx image
+            # Nginx
             docker pull muhammettncy/nginx:latest
             docker stop nginx || true
             docker rm nginx || true
-            docker run --detach --name nginx --network app -p 80:80 muhammettncy/nginx:latest
+            docker run --detach --name nginx --network app-network -p 80:80 muhammettncy/nginx:latest
 
-            # Clean up unused dangling images
+            # Kullanılmayan dangling image'ları temizle
             docker image prune -f
 
-            # Check logs
+            # Logları kontrol et
             docker logs nginx
             docker logs phpserver_product_service
