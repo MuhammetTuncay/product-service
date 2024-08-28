@@ -16,9 +16,9 @@ RUN rm -rf /etc/php/8.2/fpm/conf.d/newrelic.ini
 RUN rm -rf /etc/nginc/nginx.conf
 ADD nginx/nginx.conf /etc/nginx/
 
-COPY cron-container /etc/cron.d/cron-container
-RUN chmod 0644 /etc/cron.d/cron-container
-RUN crontab /etc/cron.d/cron-container
+#COPY cron-container /etc/cron.d/cron-container
+#RUN chmod 0644 /etc/cron.d/cron-container
+#RUN crontab /etc/cron.d/cron-container
 
 COPY docker/supervisor/supervisord.conf /etc/supervisor/conf.d
 RUN sed -i 's/memory_limit = 128M/memory_limit = -1/g' /etc/php/8.2/fpm/php.ini
