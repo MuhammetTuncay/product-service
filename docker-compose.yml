@@ -6,7 +6,7 @@ networks:
 
 services:
   webserver:
-    image: 'nginx:alpine'
+    image: 'nginx:latest'
     container_name: "webserver_${APP_NAME}"
     working_dir: /app
     volumes:

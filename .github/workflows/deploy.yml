@@ -37,13 +37,6 @@ jobs:
           tags: muhammettncy/product-service:latest
           file: ./Dockerfile
 
-      - name: Build and push Nginx
-        uses: docker/build-push-action@v6
-        with:
-          context: .
-          push: true
-          tags: muhammettncy/nginx:latest
-          file: ./Dockerfile
 
       - name: SSH into EC2 and update containers
         uses: appleboy/ssh-action@master
