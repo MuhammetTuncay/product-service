@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da5ff3e3-ec85-4c26-91d9-e5ae47bc4970" name="Changes" comment="" />
+    <list default="true" id="da5ff3e3-ec85-4c26-91d9-e5ae47bc4970" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.github/workflows/deploy.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.env.example" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,10 +18,13 @@
     <pharConfigPath>$PROJECT_DIR$/src/composer.json</pharConfigPath>
     <execution />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/usr/local/Cellar/php/8.2.1_1/bin/php">
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/opt/homebrew/Cellar/php/8.2.3/bin/php">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/dflydev/dot-access-data" />
       <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
@@ -292,7 +299,9 @@
     "Makefile Target.build.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/Users/muhammettuncay/Documents/case/case-study",
+    "com.codeium.enabled": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/muhammettuncay/Documents/muhammet/product-service/.github/workflows",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -309,6 +318,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/.github/workflows" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/app" />
       <recent name="$PROJECT_DIR$/src/app/Managers" />
@@ -346,50 +358,7 @@
       <set>
         <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PS-241.18034.69" />
         <option value="bundled-php-predefined-ba97393d7c68-48a1a656d44e-com.jetbrains.php.sharedIndexes-PS-241.18034.69" />
-        <option value="php-doctrine_annotations-37cbfb0ca1b6-7746a12d" />
-        <option value="php-doctrine_inflector-37cbfb0ca1b6-b7cf42e2" />
-        <option value="php-dragonmantank_cron_expression-37cbfb0ca1b6-b8bc3a29" />
-        <option value="php-egulias_email_validator-37cbfb0ca1b6-51edd7f1" />
-        <option value="php-fakerphp_faker-37cbfb0ca1b6-195cdd96" />
-        <option value="php-guzzlehttp_guzzle-37cbfb0ca1b6-c7d7fcac" />
-        <option value="php-guzzlehttp_promises-37cbfb0ca1b6-59d7d582" />
-        <option value="php-guzzlehttp_psr7-37cbfb0ca1b6-234759fb" />
-        <option value="php-laravel_framework-37cbfb0ca1b6-f2afd6da" />
-        <option value="php-league_commonmark-37cbfb0ca1b6-b9b21c8f" />
-        <option value="php-league_flysystem-37cbfb0ca1b6-6ed0ef08" />
-        <option value="php-mockery_mockery-37cbfb0ca1b6-0d788a5e" />
-        <option value="php-monolog_monolog-37cbfb0ca1b6-ed6d1630" />
-        <option value="php-nesbot_carbon-37cbfb0ca1b6-da1ada41" />
-        <option value="php-nette_utils-37cbfb0ca1b6-43691408" />
-        <option value="php-nikic_php_parser-37cbfb0ca1b6-745939f6" />
-        <option value="php-nunomaduro_collision-37cbfb0ca1b6-919856a0" />
-        <option value="php-nunomaduro_termwind-37cbfb0ca1b6-08ef8fa7" />
-        <option value="php-paragonie_random_compat-37cbfb0ca1b6-a5659ac3" />
-        <option value="php-phar_io_version-37cbfb0ca1b6-97401194" />
-        <option value="php-phpseclib_phpseclib-37cbfb0ca1b6-5a667863" />
-        <option value="php-phpunit_php_code_coverage-37cbfb0ca1b6-3ee34d07" />
-        <option value="php-phpunit_phpunit-37cbfb0ca1b6-464036ab" />
         <option value="php-predis_predis-37cbfb0ca1b6-dde0913e" />
-        <option value="php-psy_psysh-37cbfb0ca1b6-2bff4070" />
-        <option value="php-ramsey_uuid-37cbfb0ca1b6-574450e2" />
-        <option value="php-sebastian_comparator-37cbfb0ca1b6-853dd153" />
-        <option value="php-symfony_console-37cbfb0ca1b6-41c774ef" />
-        <option value="php-symfony_css_selector-37cbfb0ca1b6-b6135a15" />
-        <option value="php-symfony_error_handler-37cbfb0ca1b6-2f7234f9" />
-        <option value="php-symfony_event_dispatcher-37cbfb0ca1b6-22ca235b" />
-        <option value="php-symfony_finder-37cbfb0ca1b6-18267425" />
-        <option value="php-symfony_http_foundation-37cbfb0ca1b6-dbedee6a" />
-        <option value="php-symfony_http_kernel-37cbfb0ca1b6-6850ef07" />
-        <option value="php-symfony_mailer-37cbfb0ca1b6-5d994f9f" />
-        <option value="php-symfony_mime-37cbfb0ca1b6-f06c5301" />
-        <option value="php-symfony_process-37cbfb0ca1b6-0c45b194" />
-        <option value="php-symfony_routing-37cbfb0ca1b6-2eb007bc" />
-        <option value="php-symfony_string-37cbfb0ca1b6-6da9c235" />
-        <option value="php-symfony_translation-37cbfb0ca1b6-3c853d79" />
-        <option value="php-symfony_var_dumper-37cbfb0ca1b6-ba6b5567" />
-        <option value="php-symfony_yaml-37cbfb0ca1b6-61027ce4" />
-        <option value="php-vlucas_phpdotenv-37cbfb0ca1b6-caa2a1eb" />
-        <option value="php-voku_portable_ascii-37cbfb0ca1b6-c21a5494" />
       </set>
     </attachedChunks>
   </component>

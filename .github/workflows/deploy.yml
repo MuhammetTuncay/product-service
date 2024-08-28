@@ -1,0 +1,87 @@
+name: Deploy Laravel and Nginx to Docker Hub and EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
+      - name: Set up Git authentication
+        run: |
+          git config --global url."https://${{ secrets.GITHUB_TOKEN }}@github.com/".insteadOf "https://github.com/"
+
+      - name: Build and push Laravel app
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: muhammettncy/product-service:latest
+          file: ./Dockerfile
+
+      - name: Build and push Nginx
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: muhammettncy/nginx:latest
+          file: ./configs/nginx/Dockerfile
+
+      - name: SSH into EC2 and update containers
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ec2-user
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
+            # Docker network oluştur
+            if ! docker network inspect app-network >/dev/null 2>&1; then
+              docker network create app-network
+            fi
+
+            cd /home/ec2-user/product-service
+
+            # Laravel backend
+            docker pull muhammettncy/product-service:latest
+            docker stop beran_app || true
+            docker rm beran_app || true
+            docker run --detach --name beran_app --network app-network -p 9000:9000 muhammettncy/product-service:latest
+
+            # Check if .env file exists inside the container
+            if ! docker exec beran_app test -f /var/www/backend/.env; then
+              docker cp /home/ec2-user/env/.env beran_app:/var/www/backend/.env
+            fi
+
+            # Nginx
+            docker pull muhammettncy/nginx:latest
+            docker stop nginx || true
+            docker rm nginx || true
+            docker run --detach --name nginx --network app-network -p 80:80 muhammettncy/nginx:latest
+
+            # Kullanılmayan dangling image'ları temizle
+            docker image prune -f
+
+            # Logları kontrol et
+            docker logs nginx
+            docker logs beran_app
+      
