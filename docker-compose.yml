@@ -1,6 +1,4 @@
-networks:
-  app-network:
-    driver: bridge
+version: '3.8'
 
 services:
   nginx:
@@ -56,3 +54,27 @@ services:
       - app-network
     ports:
       - "3306:3306"
+
+  redis:
+    container_name: redis
+    image: redis:alpine
+    networks:
+      - app-network
+    ports:
+      - "6379:6379"
+
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:3-management
+    networks:
+      - app-network
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  elasticsearch:
+    container_name: elasticsearch
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.9
+    environment:
+      - discovery.type=single-node
+      - ES_JAVA_OP

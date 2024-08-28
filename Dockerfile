@@ -1,6 +1,6 @@
 FROM php:8.3-fpm
 
-# Gerekli paketleri yükle
+# Install necessary packages and PHP extensions
 RUN apt-get update && apt-get install -y \
     libpng-dev \
     libjpeg-dev \
@@ -22,29 +22,29 @@ RUN apt-get update && apt-get install -y \
     redis-server \
     libhiredis-dev \
     supervisor \
+    curl \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# PHP uzantılarını kur
+# Install PHP extensions
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg && \
     docker-php-ext-install gd zip pdo pdo_mysql sockets pcntl exif pdo_pgsql intl
 
-# Redis uzantısını yükle
+# Install Redis and Supervisor extensions
 RUN pecl install redis && docker-php-ext-enable redis
 
-# Composer'ı kur
+# Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 WORKDIR /var/www/backend
 
-# Proje dosyalarını kopyala
+# Copy project files
 COPY ./source /var/www/backend
 
-# Supervisor yapılandırma dosyasını kopyala
+# Copy Supervisor config
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-# Entrypoint script ekle
+# Copy and set up the entrypoint script
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
-# Entrypoint scripti çalıştır
 ENTRYPOINT ["entrypoint.sh"]
