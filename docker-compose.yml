@@ -3,6 +3,7 @@ version: '3.8'
 services:
   nginx:
     container_name: nginx
+    platform: linux/amd64
     image: muhammettncy/nginxx:latest
     ports:
       - "80:80"

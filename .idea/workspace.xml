@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da5ff3e3-ec85-4c26-91d9-e5ae47bc4970" name="Changes" comment="deploy 25" />
+    <list default="true" id="da5ff3e3-ec85-4c26-91d9-e5ae47bc4970" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,10 +19,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/opt/homebrew/Cellar/php/8.2.3/bin/php">
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/usr/local/Cellar/php/8.2.1_1/bin/php">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/dflydev/dot-access-data" />
       <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
@@ -406,44 +412,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Docker.docker-compose.yml.rabbitmq: Compose Deployment.executor": "Run",
-    "Makefile Target.all.executor": "Run",
-    "Makefile Target.build.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "com.codeium.enabled": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/muhammettuncay/Documents/muhammet/product-service",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "php.override.implement.member.chooser.php.doc": "NONE",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Makefile Target.all.executor&quot;: &quot;Run&quot;,
+    &quot;Makefile Target.build.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/muhammettuncay/Documents/case/product-service&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;php.override.implement.member.chooser.php.doc&quot;: &quot;NONE&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
-  <component name="ReactDesignerToolWindowState">
-    <option name="myId2Visible">
-      <map>
-        <entry key="com.intellij.reactbuddy.reactComponents" value="false" />
-        <entry key="com.intellij.reactbuddy.reactInspector" value="false" />
-        <entry key="com.intellij.reactbuddy.storybook" value="false" />
-      </map>
-    </option>
-  </component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/.github/workflows" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/app" />
@@ -453,7 +447,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Docker.docker-compose.yml.rabbitmq: Compose Deployment">
+  <component name="RunManager" selected="Makefile Target.all">
     <configuration name="all" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
       <makefile filename="$PROJECT_DIR$/makefile" target="all" workingDirectory="" arguments="">
         <envs />
@@ -467,29 +461,11 @@
       <method v="2" />
     </configuration>
     <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
-      <TestRunner configuration_file="$PROJECT_DIR$/source/phpunit.xml" scope="XML" use_alternative_configuration_file="true" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
-      <deployment type="docker-compose.yml" />
-      <method v="2" />
-    </configuration>
-    <configuration name="docker-compose.yml.rabbitmq: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="services">
-            <list>
-              <option value="rabbitmq" />
-            </list>
-          </option>
-          <option name="sourceFilePath" value="docker-compose.yml" />
-        </settings>
-      </deployment>
+      <TestRunner configuration_file="$PROJECT_DIR$/src/phpunit.xml" scope="XML" use_alternative_configuration_file="true" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Docker.docker-compose.yml.rabbitmq: Compose Deployment" />
         <item itemvalue="Makefile Target.all" />
         <item itemvalue="Makefile Target.build" />
       </list>
@@ -500,7 +476,50 @@
       <set>
         <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PS-241.18034.69" />
         <option value="bundled-php-predefined-ba97393d7c68-48a1a656d44e-com.jetbrains.php.sharedIndexes-PS-241.18034.69" />
+        <option value="php-doctrine_annotations-37cbfb0ca1b6-7746a12d" />
+        <option value="php-doctrine_inflector-37cbfb0ca1b6-b7cf42e2" />
+        <option value="php-dragonmantank_cron_expression-37cbfb0ca1b6-b8bc3a29" />
+        <option value="php-egulias_email_validator-37cbfb0ca1b6-51edd7f1" />
+        <option value="php-fakerphp_faker-37cbfb0ca1b6-195cdd96" />
+        <option value="php-guzzlehttp_guzzle-37cbfb0ca1b6-c7d7fcac" />
+        <option value="php-guzzlehttp_promises-37cbfb0ca1b6-59d7d582" />
+        <option value="php-guzzlehttp_psr7-37cbfb0ca1b6-234759fb" />
+        <option value="php-laravel_framework-37cbfb0ca1b6-f2afd6da" />
+        <option value="php-league_commonmark-37cbfb0ca1b6-b9b21c8f" />
+        <option value="php-league_flysystem-37cbfb0ca1b6-6ed0ef08" />
+        <option value="php-mockery_mockery-37cbfb0ca1b6-0d788a5e" />
+        <option value="php-monolog_monolog-37cbfb0ca1b6-ed6d1630" />
+        <option value="php-nesbot_carbon-37cbfb0ca1b6-da1ada41" />
+        <option value="php-nette_utils-37cbfb0ca1b6-43691408" />
+        <option value="php-nikic_php_parser-37cbfb0ca1b6-745939f6" />
+        <option value="php-nunomaduro_collision-37cbfb0ca1b6-919856a0" />
+        <option value="php-nunomaduro_termwind-37cbfb0ca1b6-08ef8fa7" />
+        <option value="php-paragonie_random_compat-37cbfb0ca1b6-a5659ac3" />
+        <option value="php-phar_io_version-37cbfb0ca1b6-97401194" />
+        <option value="php-phpseclib_phpseclib-37cbfb0ca1b6-5a667863" />
+        <option value="php-phpunit_php_code_coverage-37cbfb0ca1b6-3ee34d07" />
+        <option value="php-phpunit_phpunit-37cbfb0ca1b6-464036ab" />
         <option value="php-predis_predis-37cbfb0ca1b6-dde0913e" />
+        <option value="php-psy_psysh-37cbfb0ca1b6-2bff4070" />
+        <option value="php-ramsey_uuid-37cbfb0ca1b6-574450e2" />
+        <option value="php-sebastian_comparator-37cbfb0ca1b6-853dd153" />
+        <option value="php-symfony_console-37cbfb0ca1b6-41c774ef" />
+        <option value="php-symfony_css_selector-37cbfb0ca1b6-b6135a15" />
+        <option value="php-symfony_error_handler-37cbfb0ca1b6-2f7234f9" />
+        <option value="php-symfony_event_dispatcher-37cbfb0ca1b6-22ca235b" />
+        <option value="php-symfony_finder-37cbfb0ca1b6-18267425" />
+        <option value="php-symfony_http_foundation-37cbfb0ca1b6-dbedee6a" />
+        <option value="php-symfony_http_kernel-37cbfb0ca1b6-6850ef07" />
+        <option value="php-symfony_mailer-37cbfb0ca1b6-5d994f9f" />
+        <option value="php-symfony_mime-37cbfb0ca1b6-f06c5301" />
+        <option value="php-symfony_process-37cbfb0ca1b6-0c45b194" />
+        <option value="php-symfony_routing-37cbfb0ca1b6-2eb007bc" />
+        <option value="php-symfony_string-37cbfb0ca1b6-6da9c235" />
+        <option value="php-symfony_translation-37cbfb0ca1b6-3c853d79" />
+        <option value="php-symfony_var_dumper-37cbfb0ca1b6-ba6b5567" />
+        <option value="php-symfony_yaml-37cbfb0ca1b6-61027ce4" />
+        <option value="php-vlucas_phpdotenv-37cbfb0ca1b6-caa2a1eb" />
+        <option value="php-voku_portable_ascii-37cbfb0ca1b6-c21a5494" />
       </set>
     </attachedChunks>
   </component>
@@ -518,38 +537,15 @@
       <workItem from="1718983172408" duration="6212000" />
       <workItem from="1719262826687" duration="235000" />
       <workItem from="1719263101237" duration="74000" />
+      <workItem from="1719433879576" duration="2062000" />
+      <workItem from="1720010779390" duration="2785000" />
+      <workItem from="1723760629285" duration="66000" />
+      <workItem from="1724881251337" duration="580000" />
+      <workItem from="1724881833906" duration="347000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="deploy 01" />
-    <MESSAGE value="deploy 02" />
-    <MESSAGE value="deploy 03" />
-    <MESSAGE value="deploy 04" />
-    <MESSAGE value="deploy 05" />
-    <MESSAGE value="deploy 06" />
-    <MESSAGE value="deploy 07" />
-    <MESSAGE value="deploy 08" />
-    <MESSAGE value="deploy 09" />
-    <MESSAGE value="deploy 10" />
-    <MESSAGE value="deploy 11" />
-    <MESSAGE value="deploy 12" />
-    <MESSAGE value="deploy 13" />
-    <MESSAGE value="deploy 14" />
-    <MESSAGE value="deploy 15" />
-    <MESSAGE value="deploy 16" />
-    <MESSAGE value="deploy 17" />
-    <MESSAGE value="deploy 18" />
-    <MESSAGE value="deploy 19" />
-    <MESSAGE value="deploy 20" />
-    <MESSAGE value="deploy 21" />
-    <MESSAGE value="deploy 22" />
-    <MESSAGE value="deploy 23" />
-    <MESSAGE value="deploy 24" />
-    <MESSAGE value="deploy 25" />
-    <option name="LAST_COMMIT_MESSAGE" value="deploy 25" />
   </component>
 </project>
