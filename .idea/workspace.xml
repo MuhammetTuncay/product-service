@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da5ff3e3-ec85-4c26-91d9-e5ae47bc4970" name="Changes" comment="deploy 16">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/deploy.yml" afterDir="false" />
+    <list default="true" id="da5ff3e3-ec85-4c26-91d9-e5ae47bc4970" name="Changes" comment="deploy 17">
+      <change beforePath="$PROJECT_DIR$/entrypoint.sh" beforeDir="false" afterPath="$PROJECT_DIR$/entrypoint.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -524,6 +524,7 @@
     <MESSAGE value="deploy 14" />
     <MESSAGE value="deploy 15" />
     <MESSAGE value="deploy 16" />
-    <option name="LAST_COMMIT_MESSAGE" value="deploy 16" />
+    <MESSAGE value="deploy 17" />
+    <option name="LAST_COMMIT_MESSAGE" value="deploy 17" />
   </component>
 </project>

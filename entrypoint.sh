@@ -19,6 +19,8 @@ fi
 if [ ! -L "/var/www/backend/public/storage" ]; then
   php artisan storage:link
 fi
+php artisan migrate
+php artisan db:seed
 php artisan cache:clear
 php artisan route:clear
 php artisan view:clear
