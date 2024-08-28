@@ -76,7 +76,15 @@ jobs:
             docker pull mysql:5.7
             docker stop product_service_mysql || true
             docker rm product_service_mysql || true
-            docker run --detach --name product_service_mysql --network app-network -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=product_service -e MYSQL_USER=product_service -e MYSQL_PASSWORD=product_service -p 3306:3306 mysql:5.7
+            docker run --detach \
+            --name product_service_mysql \
+            --network app-network \
+            -e MYSQL_ROOT_PASSWORD=root \
+            -e MYSQL_DATABASE=product_service \
+            -e MYSQL_USER=product_service \
+            -e MYSQL_PASSWORD=product_service \
+            -p 3306:3306 \
+            mysql:5.7
 
             # Redis
             docker pull redis:latest
