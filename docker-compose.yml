@@ -5,7 +5,7 @@ networks:
 services:
   nginx:
     container_name: nginx
-    image: muhammettncy/nginx:latest
+    image: muhammettncy/nginxx:latest
     ports:
       - "80:80"
     volumes:
