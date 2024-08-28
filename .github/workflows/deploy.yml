@@ -71,12 +71,20 @@ jobs:
             if ! docker exec product_service test -f /var/www/backend/.env; then
               docker cp /home/ec2-user/env/.env product_service:/var/www/backend/.env
             fi
+            
+             # MySQL database
+            docker pull mysql:5.7
+            docker stop product_service_mysql || true
+            docker rm product_service_mysql || true
+            docker run --detach --name product_service_mysql --network app-network -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=product_service -e MYSQL_USER=product_service -e MYSQL_PASSWORD=product_service -p 3306:3306 mysql:5.7
+
 
             # Nginx
             docker pull muhammettncy/nginxx:latest
             docker stop nginx || true
             docker rm nginx || true
             docker run --detach --name nginx --network app-network -p 80:80 muhammettncy/nginxx:latest
+            
 
             # Kullanılmayan dangling image'ları temizle
             docker image prune -f
