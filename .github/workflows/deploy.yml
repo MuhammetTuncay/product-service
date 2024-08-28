@@ -43,7 +43,7 @@ jobs:
           context: .
           push: true
           tags: muhammettncy/nginx:latest
-          file: ./configs/nginx/Dockerfile
+          file: ./Dockerfile
 
       - name: SSH into EC2 and update containers
         uses: appleboy/ssh-action@master
