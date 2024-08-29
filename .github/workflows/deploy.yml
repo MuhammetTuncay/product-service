@@ -42,7 +42,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: nginx:alpine
+          tags: muhammettncy/nginxx:latest
           file: ./configs/nginx/Dockerfile
 
       - name: SSH into EC2 and update containers
@@ -106,10 +106,10 @@ jobs:
             
   
             # Nginx
-            docker pull nginx:alpine
+            docker pull muhammettncy/nginxx:latest
             docker stop nginx || true
             docker rm nginx || true
-            docker run --detach --name nginx --network app-network -p 80:80 nginx:alpine
+            docker run --detach --name nginx --network app-network -p 80:80 muhammettncy/nginxx:latest
             
             
             # Kullanılmayan dangling image'ları temizle
