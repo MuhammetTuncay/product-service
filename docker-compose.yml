@@ -26,6 +26,7 @@ services:
       - DB_DATABASE=product_service
       - DB_USERNAME=product_service
       - DB_PASSWORD=product_service
+      - ELASTICSEARCH_HOST=http://elasticsearch:9200
 
   product_service:
     container_name: product_service
