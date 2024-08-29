@@ -106,7 +106,7 @@ jobs:
             
   
             # Nginx
-            docker pull mnginx:alpine
+            docker pull nginx:alpine
             docker stop nginx || true
             docker rm nginx || true
             docker run --detach --name nginx --network app-network -p 80:80 nginx:alpine
