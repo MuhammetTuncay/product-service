@@ -4,7 +4,7 @@ services:
   nginx:
     container_name: nginx
     platform: linux/amd64
-    image: muhammettncy/nginxx:latest
+    image: nginx:alpine
     ports:
       - "80:80"
     volumes:
