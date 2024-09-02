@@ -46,7 +46,7 @@ jobs:
           file: ./configs/nginx/Dockerfile
 
       - name: SSH into EC2 and update containers
-        uses: appleboy/ssh-action@master  # Versiyon numarasını güncelledik
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ec2-user
@@ -75,25 +75,31 @@ jobs:
             fi
             
             echo "Pulling and running MySQL container..."
-            docker pull mysql:5.7
-            docker stop product_service_mysql && docker rm product_service_mysql || true
-            docker run --detach \
-            --name product_service_mysql \
-            --network app-network \
-            -e MYSQL_ROOT_PASSWORD=root \
-            -e MYSQL_DATABASE=product_service \
-            -e MYSQL_USER=product_service \
-            -e MYSQL_PASSWORD=product_service \
-            -p 3306:3306 \
-            mysql:5.7
-
-            echo "Waiting for MySQL to be ready..."
-            until docker exec product_service_mysql mysqladmin ping -h"127.0.0.1" --silent; do
+            # MySQL database
+              docker pull mysql:5.7
+              docker stop product_service_mysql && docker rm product_service_mysql || true
+              docker run --detach \
+              --name product_service_mysql \
+              --network app-network \
+              -e MYSQL_ROOT_PASSWORD=root \
+              -e MYSQL_DATABASE=product_service \
+              -e MYSQL_USER=product_service \
+              -e MYSQL_PASSWORD=product_service \
+              -p 3306:3306 \
+              mysql:5.7
+              
+              echo "Waiting for MySQL to be ready..."
+              until docker exec product_service_mysql mysqladmin ping -h"127.0.0.1" -uroot -proot --silent; do
               echo "Waiting..."
               sleep 2
-            done
-            echo "MySQL is ready."
-
+              done
+              echo "MySQL is ready."
+              
+              echo "Running Laravel migrations and seeders..."
+              docker exec product_service bash -c "php artisan migrate --force && php artisan db:seed --force"
+              echo "Migrations and seeders completed."
+  
+  
             echo "Pulling and running Redis container..."
             docker pull redis:latest
             docker stop redis && docker rm redis || true
