@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da5ff3e3-ec85-4c26-91d9-e5ae47bc4970" name="Changes" comment="deploy 51" />
+    <list default="true" id="da5ff3e3-ec85-4c26-91d9-e5ae47bc4970" name="Changes" comment="deploy 52">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -610,6 +612,7 @@
     <MESSAGE value="deploy 49" />
     <MESSAGE value="deploy 50" />
     <MESSAGE value="deploy 51" />
-    <option name="LAST_COMMIT_MESSAGE" value="deploy 51" />
+    <MESSAGE value="deploy 52" />
+    <option name="LAST_COMMIT_MESSAGE" value="deploy 52" />
   </component>
 </project>
