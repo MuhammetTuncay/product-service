@@ -75,7 +75,7 @@ jobs:
             fi
 
             echo "Installing Composer dependencies..."
-            docker exec product_service bash -c "if [ -f /var/www/backend/composer.lock ]; then composer install --no-dev --optimize-autoloader; else composer update --no-dev --optimize-autoloader; fi"
+            docker exec product_service bash -c "composer install --no-dev --optimize-autoloader"
 
             echo "Pulling and running MySQL container..."
             docker pull mysql:5.7
@@ -120,6 +120,15 @@ jobs:
             docker pull muhammettncy/nginxx:latest
             docker stop nginx && docker rm nginx || true
             docker run --detach --name nginx --network app-network -p 80:80 muhammettncy/nginxx:latest
+
+            echo "Creating necessary directories and setting permissions..."
+            docker exec product_service bash -c "mkdir -p /var/www/backend/storage /var/www/backend/bootstrap/cache"
+            docker exec product_service bash -c "chown -R www-data:www-data /var/www/backend/storage /var/www/backend/bootstrap/cache /var/www/backend/vendor"
+            docker exec product_service bash -c "mkdir -p /var/log/supervisor"
+            docker exec product_service bash -c "mkdir -p /var/run/supervisor"
+
+            echo "Starting Supervisor..."
+            docker exec product_service bash -c "/usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf"
 
             echo "Cleaning up unused Docker images..."
             docker image prune -f
