@@ -88,35 +88,35 @@ jobs:
 
             # Redis
             docker pull redis:alpine
-            docker stop redis || true
-            docker rm redis || true
-            docker run --detach --name redis --network app-network -p 6379:6379 redis:alpine
+            docker stop product_service_redis || true
+            docker rm product_service_redis || true
+            docker run --detach --name product_service_redis --network app-network -p 6379:6379 redis:alpine
 
             # RabbitMQ
             docker pull rabbitmq:3-management
-            docker stop rabbitmq || true
-            docker rm rabbitmq || true
-            docker run --detach --name rabbitmq --network app-network -p 5672:5672 -p 15672:15672 rabbitmq:3-management
+            docker stop product_service_rabbitmq || true
+            docker rm product_service_rabbitmq || true
+            docker run --detach --name product_service_rabbitmq --network app-network -p 5672:5672 -p 15672:15672 rabbitmq:3-management
 
             # Elasticsearch
             docker pull docker.elastic.co/elasticsearch/elasticsearch:7.17.9
-            docker stop elasticsearch || true
-            docker rm elasticsearch || true
-            docker run --detach --name elasticsearch -d --network app-network -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.17.9
+            docker stop product_service_elasticsearch || true
+            docker rm product_service_elasticsearch || true
+            docker run --detach --name product_service_elasticsearch -d --network app-network -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.17.9
 
             # Nginx
             docker pull muhammettncy/nginxx:latest
-            docker stop nginx || true
-            docker rm nginx || true
-            docker run --detach --name nginx --network app-network -p 80:80 muhammettncy/nginxx:latest
+            docker stop product_service_nginx || true
+            docker rm product_service_nginx || true
+            docker run --detach --name product_service_nginx --network app-network -p 80:80 muhammettncy/nginxx:latest
 
             # Kullanılmayan dangling image'ları temizle
             docker image prune -f
 
             # Logları kontrol et
-            docker logs nginx
+            docker logs product_service_nginx
             docker logs product_service
             docker logs product_service_mysql
-            docker logs redis
-            docker logs rabbitmq
-            docker logs elasticsearch
+            docker logs product_service_redis
+            docker logs product_service_rabbitmq
+            docker logs product_service_elasticsearch

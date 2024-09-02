@@ -1,8 +1,8 @@
 version: '3.8'
 
 services:
-  nginx:
-    container_name: nginx
+  product_service_nginx:
+    container_name: product_service_nginx
     platform: linux/amd64
     image: muhammettncy/nginxx:latest
     ports:
@@ -63,16 +63,16 @@ services:
     ports:
       - "3306:3306"
 
-  redis:
-    container_name: redis
+  product_service_redis:
+    container_name: product_service_redis
     image: redis:alpine
     networks:
       - app-network
     ports:
       - "6379:6379"
 
-  rabbitmq:
-    container_name: rabbitmq
+  product_service_rabbitmq:
+    container_name: product_service_rabbitmq
     image: rabbitmq:3-management
     environment:
       RABBITMQ_DEFAULT_USER: guest
@@ -83,8 +83,8 @@ services:
     networks:
       - app-network
 
-  elasticsearch:
-    container_name: elasticsearch
+  product_service_elasticsearch:
+    container_name: product_service_elasticsearch
     image: docker.elastic.co/elasticsearch/elasticsearch:7.17.9
     environment:
       - discovery.type=single-node
