@@ -26,7 +26,7 @@ services:
       - DB_DATABASE=product_service
       - DB_USERNAME=product_service
       - DB_PASSWORD=product_service
-      - ELASTICSEARCH_HOST=elasticsearch:9200
+      - ELASTICSEARCH_HOST=http://elasticsearch:9200
 
   product_service:
     container_name: product_service
@@ -43,6 +43,11 @@ services:
     ports:
       - "9000:9000"
     entrypoint: [ "/usr/local/bin/entrypoint.sh" ]
+    depends_on:
+      - product_service_mysql
+      - redis
+      - rabbitmq
+      - elasticsearch
 
   product_service_mysql:
     container_name: product_service_mysql
