@@ -71,22 +71,6 @@ jobs:
             if ! docker exec product_service test -f /var/www/backend/.env; then
               docker cp /home/ec2-user/env/.env product_service:/var/www/backend/.env
             fi
-            
-            # Composer install or update
-            if docker exec product_service test -f /var/www/backend/composer.lock; then
-              docker exec product_service composer install --no-dev --optimize-autoloader
-            else
-              docker exec product_service composer update --no-dev --optimize-autoloader
-            fi
-
-            # Run Laravel commands
-            docker exec product_service php artisan migrate --force
-            docker exec product_service php artisan db:seed --force
-            docker exec product_service php artisan cache:clear
-            docker exec product_service php artisan route:clear
-            docker exec product_service php artisan view:clear
-            docker exec product_service php artisan config:clear
-            docker exec product_service php artisan permission:cache-reset
 
             # MySQL database
             docker pull mysql:5.7
@@ -103,10 +87,10 @@ jobs:
             mysql:5.7
 
             # Redis
-            docker pull redis:latest
+            docker pull redis:alpine
             docker stop redis || true
             docker rm redis || true
-            docker run --detach --name redis --network app-network -p 6379:6379 redis:latest
+            docker run --detach --name redis --network app-network -p 6379:6379 redis:alpine
 
             # RabbitMQ
             docker pull rabbitmq:3-management
