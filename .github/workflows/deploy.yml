@@ -46,36 +46,37 @@ jobs:
           file: ./configs/nginx/Dockerfile
 
       - name: SSH into EC2 and update containers
-        uses: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@v0.x  # Versiyon numarasını güncelledik
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ec2-user
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
+            echo "Logging into Docker Hub..."
             docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
-            # Docker network oluştur
-            if ! docker network inspect app-network >/dev/null 2>&1; then
-              docker network create app-network
-            fi
+            echo "Creating Docker network if not exists..."
+            docker network create app-network || true
 
             cd /home/ec2-user/product-service
 
-            # Laravel backend
+            echo "Pulling latest Laravel app image..."
             docker pull muhammettncy/product-service:latest
             docker stop product_service || true
             docker rm product_service || true
             docker run --detach --name product_service --network app-network -p 9000:9000 muhammettncy/product-service:latest
 
-            # Check if .env file exists inside the container
+            echo "Checking if .env file exists in the container..."
             if ! docker exec product_service test -f /var/www/backend/.env; then
-              docker cp /home/ec2-user/env/.env product_service:/var/www/backend/.env
+              echo ".env file does not exist in the container. Copying..."
+              docker cp /home/ec2-user/env/.env product_service:/var/www/backend/.env || { echo "Failed to copy .env file"; exit 1; }
+            else
+              echo ".env file already exists."
             fi
             
-            # MySQL database
+            echo "Pulling and running MySQL container..."
             docker pull mysql:5.7
-            docker stop product_service_mysql || true
-            docker rm product_service_mysql || true
+            docker stop product_service_mysql && docker rm product_service_mysql || true
             docker run --detach \
             --name product_service_mysql \
             --network app-network \
@@ -86,41 +87,40 @@ jobs:
             -p 3306:3306 \
             mysql:5.7
 
-            # Redis
+            echo "Waiting for MySQL to be ready..."
+            until docker exec product_service_mysql mysqladmin ping -h"127.0.0.1" --silent; do
+              echo "Waiting..."
+              sleep 2
+            done
+            echo "MySQL is ready."
+
+            echo "Pulling and running Redis container..."
             docker pull redis:latest
-            docker stop redis || true
-            docker rm redis || true
+            docker stop redis && docker rm redis || true
             docker run --detach --name redis --network app-network -p 6379:6379 redis:latest
 
-            # RabbitMQ
+            echo "Pulling and running RabbitMQ container..."
             docker pull rabbitmq:3-management
-            docker stop rabbitmq || true
-            docker rm rabbitmq || true
+            docker stop rabbitmq && docker rm rabbitmq || true
             docker run --detach --name rabbitmq --network app-network -p 5672:5672 -p 15672:15672 rabbitmq:3-management
 
-            # Elasticsearch
+            echo "Pulling and running Elasticsearch container..."
             docker pull docker.elastic.co/elasticsearch/elasticsearch:7.17.9
-            docker stop elasticsearch || true
-            docker rm elasticsearch || true
+            docker stop elasticsearch && docker rm elasticsearch || true
             docker run --detach --name elasticsearch --network app-network -p 9200:9200 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.17.9
             
-  
-            # Nginx
+            echo "Pulling and running Nginx container..."
             docker pull muhammettncy/nginxx:latest
-            docker stop nginx || true
-            docker rm nginx || true
+            docker stop nginx && docker rm nginx || true
             docker run --detach --name nginx --network app-network -p 80:80 muhammettncy/nginxx:latest
             
-            
-            # Kullanılmayan dangling image'ları temizle
+            echo "Cleaning up unused Docker images..."
             docker image prune -f
 
-            # Logları kontrol et
+            echo "Checking logs for containers..."
             docker logs nginx
             docker logs product_service
             docker logs product_service_mysql
             docker logs redis
             docker logs rabbitmq
             docker logs elasticsearch
-
-      
