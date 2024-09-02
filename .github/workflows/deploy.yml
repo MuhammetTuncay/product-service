@@ -46,7 +46,7 @@ jobs:
           file: ./configs/nginx/Dockerfile
 
       - name: SSH into EC2 and update containers
-        uses: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@v0.0.0
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ec2-user
@@ -73,12 +73,15 @@ jobs:
             else
               echo ".env file already exists."
             fi
-            
+
+            echo "Installing Composer dependencies..."
+            docker exec product_service bash -c "composer install --no-dev --optimize-autoloader"
+
             echo "Pulling and running MySQL container..."
             # MySQL database
-              docker pull mysql:5.7
-              docker stop product_service_mysql && docker rm product_service_mysql || true
-              docker run --detach \
+            docker pull mysql:5.7
+            docker stop product_service_mysql && docker rm product_service_mysql || true
+            docker run --detach \
               --name product_service_mysql \
               --network app-network \
               -e MYSQL_ROOT_PASSWORD=root \
@@ -87,19 +90,18 @@ jobs:
               -e MYSQL_PASSWORD=product_service \
               -p 3306:3306 \
               mysql:5.7
-              
-              echo "Waiting for MySQL to be ready..."
-              until docker exec product_service_mysql mysqladmin ping -h"127.0.0.1" -uroot -proot --silent; do
+
+            echo "Waiting for MySQL to be ready..."
+            until docker exec product_service_mysql mysqladmin ping -h"127.0.0.1" -uroot -proot --silent; do
               echo "Waiting..."
               sleep 2
-              done
-              echo "MySQL is ready."
-              
-              echo "Running Laravel migrations and seeders..."
-              docker exec product_service bash -c "php artisan migrate --force && php artisan db:seed --force"
-              echo "Migrations and seeders completed."
-  
-  
+            done
+            echo "MySQL is ready."
+
+            echo "Running Laravel migrations and seeders..."
+            docker exec product_service bash -c "php artisan migrate --force && php artisan db:seed --force"
+            echo "Migrations and seeders completed."
+
             echo "Pulling and running Redis container..."
             docker pull redis:latest
             docker stop redis && docker rm redis || true
@@ -114,12 +116,12 @@ jobs:
             docker pull docker.elastic.co/elasticsearch/elasticsearch:7.17.9
             docker stop elasticsearch && docker rm elasticsearch || true
             docker run --detach --name elasticsearch --network app-network -p 9200:9200 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.17.9
-            
+
             echo "Pulling and running Nginx container..."
             docker pull muhammettncy/nginxx:latest
             docker stop nginx && docker rm nginx || true
             docker run --detach --name nginx --network app-network -p 80:80 muhammettncy/nginxx:latest
-            
+
             echo "Cleaning up unused Docker images..."
             docker image prune -f
 
