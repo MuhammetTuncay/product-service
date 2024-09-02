@@ -73,7 +73,7 @@ jobs:
             fi
             
             # Composer install
-            docker exec product_service bash -c "composer install --no-dev --optimize-autoloader"
+            # docker exec product_service bash -c "composer install --no-dev --optimize-autoloader"
             
             # MySQL database
             docker pull mysql:5.7
