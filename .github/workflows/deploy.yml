@@ -76,15 +76,7 @@ jobs:
             docker pull mysql:5.7
             docker stop product_service_mysql || true
             docker rm product_service_mysql || true
-            docker run --detach \
-            --name product_service_mysql \
-            --network app-network \
-            -e MYSQL_ROOT_PASSWORD=root \
-            -e MYSQL_DATABASE=product_service \
-            -e MYSQL_USER=product_service \
-            -e MYSQL_PASSWORD=product_service \
-            -p 3306:3306 \
-            mysql:5.7
+            docker run --detach --name product_service_mysql --network app-network -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=product_service -e MYSQL_USER=product_service -e MYSQL_PASSWORD=product_service -p 3306:3306 mysql:5.7
 
             # Redis
             docker pull redis:alpine
@@ -102,7 +94,7 @@ jobs:
             docker pull docker.elastic.co/elasticsearch/elasticsearch:7.17.9
             docker stop product_service_elasticsearch || true
             docker rm product_service_elasticsearch || true
-            docker run --detach --name product_service_elasticsearch -d --network app-network -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.17.9
+            docker run --detach --name product_service_elasticsearch --network app-network -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.17.9
 
             # Nginx
             docker pull muhammettncy/nginxx:latest
