@@ -75,10 +75,9 @@ jobs:
             fi
 
             echo "Installing Composer dependencies..."
-            docker exec product_service bash -c "composer install --no-dev --optimize-autoloader"
+            docker exec product_service bash -c "if [ -f /var/www/backend/composer.lock ]; then composer install --no-dev --optimize-autoloader; else composer update --no-dev --optimize-autoloader; fi"
 
             echo "Pulling and running MySQL container..."
-            # MySQL database
             docker pull mysql:5.7
             docker stop product_service_mysql && docker rm product_service_mysql || true
             docker run --detach \
