@@ -46,7 +46,7 @@ jobs:
           file: ./configs/nginx/Dockerfile
 
       - name: SSH into EC2 and update containers
-        uses: appleboy/ssh-action@v0.x  # Versiyon numarasını güncelledik
+        uses: appleboy/ssh-action@master  # Versiyon numarasını güncelledik
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ec2-user
