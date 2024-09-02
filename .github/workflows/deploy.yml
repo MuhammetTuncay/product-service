@@ -102,7 +102,7 @@ jobs:
             docker pull docker.elastic.co/elasticsearch/elasticsearch:7.17.9
             docker stop elasticsearch || true
             docker rm elasticsearch || true
-            docker run --detach --name elasticsearch --network app-network -p 9200:9200 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.17.9
+            docker run --detach --name elasticsearch -d --network app-network -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.17.9
 
             # Nginx
             docker pull muhammettncy/nginxx:latest

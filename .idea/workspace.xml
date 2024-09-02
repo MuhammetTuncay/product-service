@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da5ff3e3-ec85-4c26-91d9-e5ae47bc4970" name="Changes" comment="deploy 52">
+    <list default="true" id="da5ff3e3-ec85-4c26-91d9-e5ae47bc4970" name="Changes" comment="deploy 53">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/deploy.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -613,6 +614,7 @@
     <MESSAGE value="deploy 50" />
     <MESSAGE value="deploy 51" />
     <MESSAGE value="deploy 52" />
-    <option name="LAST_COMMIT_MESSAGE" value="deploy 52" />
+    <MESSAGE value="deploy 53" />
+    <option name="LAST_COMMIT_MESSAGE" value="deploy 53" />
   </component>
 </project>
