@@ -10,17 +10,21 @@ fi
 
 # Composer install or update
 if [ -f /var/www/backend/composer.lock ]; then
+  echo "Installing Composer dependencies..."
   composer install --no-dev --optimize-autoloader
 else
+  echo "Updating Composer dependencies..."
   composer update --no-dev --optimize-autoloader
 fi
 
 # Run Laravel commands
 if [ ! -L "/var/www/backend/public/storage" ]; then
+  echo "Linking storage..."
   php artisan storage:link
 fi
 
 # Run migrations, seeds, and cache clears
+echo "Running Laravel migrations and seeds..."
 php artisan migrate --force
 php artisan db:seed --force
 php artisan cache:clear
