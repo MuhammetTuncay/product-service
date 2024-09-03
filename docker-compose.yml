@@ -44,10 +44,14 @@ services:
       - "9000:9000"
     entrypoint: [ "/usr/local/bin/entrypoint.sh" ]
     depends_on:
-      - product_service_mysql
-      - redis
-      - rabbitmq
-      - elasticsearch
+      product_service_mysql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+      elasticsearch:
+        condition: service_healthy
 
   product_service_mysql:
     container_name: product_service_mysql
@@ -62,6 +66,10 @@ services:
       - app-network
     ports:
       - "3306:3306"
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      interval: 10s
+      retries: 5
 
   product_service_redis:
     container_name: product_service_redis
