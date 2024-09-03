@@ -27,6 +27,15 @@ services:
       - DB_USERNAME=product_service
       - DB_PASSWORD=root
       - ELASTICSEARCH_HOST=http://product_service_elasticsearch:9200
+      - ELASTICSEARCH_NEW_INDEX=products
+      - REDIS_HOST=product_service_redis
+      - REDIS_PASSWORD=null
+      - REDIS_PORT=6379
+      - RABBITMQ_HOST=product_service_rabbitmq
+      - RABBITMQ_PORT=5672
+      - RABBITMQ_VHOST=/
+      - RABBITMQ_LOGIN=guest
+      - RABBITMQ_PASSWORD=guest
 
   product_service:
     container_name: product_service
