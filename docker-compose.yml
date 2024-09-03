@@ -21,21 +21,21 @@ services:
       retries: 3
       start_period: 30s
     environment:
-      - DB_HOST=product_service_mysql
-      - DB_PORT=3306
-      - DB_DATABASE=product_service
-      - DB_USERNAME=product_service
-      - DB_PASSWORD=root
-      - ELASTICSEARCH_HOST=http://product_service_elasticsearch:9200
-      - ELASTICSEARCH_NEW_INDEX=products
-      - REDIS_HOST=product_service_redis
-      - REDIS_PASSWORD=null
-      - REDIS_PORT=6379
-      - RABBITMQ_HOST=product_service_rabbitmq
-      - RABBITMQ_PORT=5672
-      - RABBITMQ_VHOST=/
-      - RABBITMQ_LOGIN=guest
-      - RABBITMQ_PASSWORD=guest
+      DB_HOST: product_service_mysql
+      DB_PORT: 3306
+      DB_DATABASE: product_service
+      DB_USERNAME: product_service
+      DB_PASSWORD: root
+      ELASTICSEARCH_SERVER: http://product_service_elasticsearch:9200
+      ELASTICSEARCH_NEW_INDEX: products
+      REDIS_HOST: product_service_redis
+      REDIS_PASSWORD: null
+      REDIS_PORT: 6379
+      RABBITMQ_HOST: product_service_rabbitmq
+      RABBITMQ_PORT: 5672
+      RABBITMQ_VHOST: /
+      RABBITMQ_LOGIN: guest
+      RABBITMQ_PASSWORD: guest
 
   product_service:
     container_name: product_service
@@ -51,15 +51,15 @@ services:
       - app-network
     ports:
       - "9000:9000"
-    entrypoint: [ "/usr/local/bin/entrypoint.sh" ]
+    entrypoint: ["/usr/local/bin/entrypoint.sh"]
     depends_on:
       product_service_mysql:
         condition: service_healthy
-      redis:
+      product_service_redis:
         condition: service_healthy
-      rabbitmq:
+      product_service_rabbitmq:
         condition: service_healthy
-      elasticsearch:
+      product_service_elasticsearch:
         condition: service_healthy
 
   product_service_mysql:
@@ -76,7 +76,7 @@ services:
     ports:
       - "3306:3306"
     healthcheck:
-      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 10s
       retries: 5
 
@@ -104,6 +104,7 @@ services:
     container_name: product_service_elasticsearch
     image: docker.elastic.co/elasticsearch/elasticsearch:7.17.9
     environment:
+      - discovery.type
       - discovery.type=single-node
       - ES_JAVA_OPTS=-Xms1g -Xmx1g
     ports:
@@ -114,4 +115,3 @@ services:
 networks:
   app-network:
     driver: bridge
-
