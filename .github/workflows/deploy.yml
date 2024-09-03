@@ -94,7 +94,12 @@ jobs:
             docker pull docker.elastic.co/elasticsearch/elasticsearch:7.17.9
             docker stop product_service_elasticsearch || true
             docker rm product_service_elasticsearch || true
-            docker run --detach --name product_service_elasticsearch --network app-network -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.17.9
+            docker run --detach --name product_service_elasticsearch \
+            --network app-network \
+            -p 9200:9200 -p 9300:9300 \
+            -e "discovery.type=single-node" \
+            -e "ES_JAVA_OPTS=-Xms2g -Xmx2g" \
+            docker.elastic.co/elasticsearch/elasticsearch:7.17.9
 
             # Nginx
             docker pull muhammettncy/nginxx:latest
