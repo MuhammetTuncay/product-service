@@ -25,7 +25,7 @@ services:
       - DB_PORT=3306
       - DB_DATABASE=product_service
       - DB_USERNAME=product_service
-      - DB_PASSWORD=product_service
+      - DB_PASSWORD=root
       - ELASTICSEARCH_HOST=http://product_service_elasticsearch:9200
 
   product_service:
