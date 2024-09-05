@@ -70,7 +70,7 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: product_service
       MYSQL_USER: product_service
-      MYSQL_PASSWORD: product_service
+      MYSQL_PASSWORD: root
     networks:
       - app-network
     ports:
